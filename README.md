@@ -45,14 +45,23 @@ Abra o arquivo index.html no seu navegador (ou use uma extensão como Live Serve
 📁 Estrutura de diretórios
 text
 portfolio/
+
 ├── index.html
+
 ├── css/
+
 │   └── style.css
+
 ├── js/
+
 │   └── script.js
+
 ├── assets/
+
 │   └── images/           # imagens dos projetos
+
 └── README.md
+
 📌 Próximos passos
 Adicionar mais projetos (sistema de controle de veículos, jogos web)
 
