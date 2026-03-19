@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kauan — Desenvolvedor Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+  <div class="lb-inner">
+    <button class="lb-close" id="lb-close" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <p class="lb-cap" id="lb-cap"></p>
+  </div>
+</div>
+
+<!-- THEME PICKER -->
+<div class="themepicker" id="tp">
+  <h3 class="tp-title">Selecionar Tema</h3>
+  <div class="tp-list">
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="default">
+        <span class="tp-name">Clássico</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#ff335f"></span>
+          <span class="tp-hue" style="background:#43a9a3"></span>
+          <span class="tp-hue" style="background:#eceeef"></span>
+          <span class="tp-hue" style="background:#818a91"></span>
+          <span class="tp-hue" style="background:#373a3c"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="dark">
+        <span class="tp-name">Escuro</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#ff5277"></span>
+          <span class="tp-hue" style="background:#43a9a3"></span>
+          <span class="tp-hue" style="background:#2d2d2d"></span>
+          <span class="tp-hue" style="background:#818a91"></span>
+          <span class="tp-hue" style="background:#fff"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="beach">
+        <span class="tp-name">Koopa Beach</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#ff9d00"></span>
+          <span class="tp-hue" style="background:#bae8e8"></span>
+          <span class="tp-hue" style="background:#e3f6f5"></span>
+          <span class="tp-hue" style="background:#2d334a"></span>
+          <span class="tp-hue" style="background:#272343"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="choco">
+        <span class="tp-name">Choco Mountain</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#f3ab87"></span>
+          <span class="tp-hue" style="background:#e78fb3"></span>
+          <span class="tp-hue" style="background:#271c19"></span>
+          <span class="tp-hue" style="background:#ffc0ad"></span>
+          <span class="tp-hue" style="background:#fffffe"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="moomoo">
+        <span class="tp-name">Moo Moo Farm</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#f582ae"></span>
+          <span class="tp-hue" style="background:#8bd3dd"></span>
+          <span class="tp-hue" style="background:#f3d2c1"></span>
+          <span class="tp-hue" style="background:#006e8a"></span>
+          <span class="tp-hue" style="background:#172c66"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="bowser">
+        <span class="tp-name">Bowser's Castle</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#7f5af0"></span>
+          <span class="tp-hue" style="background:#2cb67d"></span>
+          <span class="tp-hue" style="background:#383a61"></span>
+          <span class="tp-hue" style="background:#94a1b2"></span>
+          <span class="tp-hue" style="background:#fffffe"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="yoshi">
+        <span class="tp-name">Yoshi Valley</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#99C221"></span>
+          <span class="tp-hue" style="background:#E55812"></span>
+          <span class="tp-hue" style="background:#e8e0d9"></span>
+          <span class="tp-hue" style="background:#757D84"></span>
+          <span class="tp-hue" style="background:#41474C"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="rainbow">
+        <span class="tp-name">Rainbow Road</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#49f5f7"></span>
+          <span class="tp-hue" style="background:#01c317"></span>
+          <span class="tp-hue" style="background:#d846ff"></span>
+          <span class="tp-hue" style="background:#ff464d"></span>
+          <span class="tp-hue" style="background:#feff00"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="lobster">
+        <span class="tp-name">Lobster Life</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#b62b2b"></span>
+          <span class="tp-hue" style="background:#fb9f13"></span>
+          <span class="tp-hue" style="background:#f1797c"></span>
+          <span class="tp-hue" style="background:#146caa"></span>
+          <span class="tp-hue" style="background:#4b1313"></span>
+        </span>
+      </button>
+    </div>
+    <div class="tp-item">
+      <button class="tp-btn" data-theme="hackernews">
+        <span class="tp-name">Hacker News</span>
+        <span class="tp-palette">
+          <span class="tp-hue" style="background:#FF6600"></span>
+          <span class="tp-hue" style="background:#FF6600"></span>
+          <span class="tp-hue" style="background:#FF6600"></span>
+          <span class="tp-hue" style="background:#828282"></span>
+          <span class="tp-hue" style="background:#000"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <button class="tp-close" id="tp-close" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+</div>
+
+<div class="layout">
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#home" class="header__brand" data-section="home">
+        <span class="hdr-name">
+          <span class="hdr-row">
+            <span class="hdr-text">Kauan</span>
+            <span class="hdr-verify" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/>
+              </svg>
+            </span>
+          </span>
+          <span class="hdr-location"><i class="fa-solid fa-location-dot"></i> Manaus, AM</span>
+        </span>
+      </a>
+      <div class="hdr-right">
+        <nav id="main-nav">
+          <button class="iconbtn nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span class="menuicon">
+              <span class="menuicon__bar"></span>
+              <span class="menuicon__bar"></span>
+              <span class="menuicon__bar"></span>
+              <span class="menuicon__bar"></span>
+            </span>
+          </button>
+          <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item" id="ni-home"><a href="#home" class="nav-link-el" data-section="home"><span class="nav-num">01</span>início</a></li>
+            <li class="nav-item" id="ni-projetos"><a href="#projetos" class="nav-link-el" data-section="projetos"><span class="nav-num">02</span>projetos</a></li>
+            <li class="nav-item" id="ni-about"><a href="#about" class="nav-link-el" data-section="about"><span class="nav-num">03</span>sobre</a></li>
+          </ul>
+        </nav>
+        <button class="iconbtn" id="tp-toggle" aria-label="Temas"><i class="fa-solid fa-palette"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- HOME -->
+    <section id="home" hidden>
+      <div class="container">
+        <div class="hero fade-in">
+          <p class="hero-pretitle"><a href="#about" data-section="about">Olá, meu nome é Kauan</a></p>
+          <h1 class="hero-title">Eu crio websites e resolvo problemas.</h1>
+          <div class="hero-body">
+            <p>Sou um futuro desenvolvedor manauara, aprimorando minhas habilidades no <strong>front</strong> e no <strong>back-end</strong> em busca do meu primeiro emprego na área.</p>
+          </div>
+        </div>
+        <div class="mb4">
+          <h2 class="feat-title">Projetos em Destaque</h2>
+          <ul class="feat-list">
+            <li>
+              <div class="feat-card" data-action="proj" data-proj="portal" style="background:#0a0f20;">
+                <img src="assets/images/portal_principal.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.65;">
+                <div class="feat-inner">
+                  <span class="feat-title-el">Portal de Inscrições</span>
+                  <p class="feat-desc">Plataforma interna da Fametro: centraliza links de vestibulares, matrículas e tickets em tempo real.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="feat-card" data-action="proj" data-proj="studybuddy" style="background:#0d1f15;">
+                <img src="assets/images/sb_painel_professor.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.65;">
+                <div class="feat-inner">
+                  <span class="feat-title-el">StudyBuddy</span>
+                  <p class="feat-desc">Plataforma acadêmica que conecta alunos e professores para resolução de dúvidas.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p class="feat-footer"><a href="#projetos" class="see-all" data-section="projetos">Ver Todos os Projetos <i class="fa-solid fa-arrow-right"></i></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" hidden>
+      <div class="container">
+        <div class="page-header"><h1 class="page-title">Projetos</h1></div>
+        <div id="proj-list">
+          <div class="proj-grid">
+            <div class="proj-card" data-action="proj" data-proj="portal">
+              <img class="proj-card-img" src="assets/images/portal_principal.png" alt="Portal de Inscrições">
+              <div class="proj-card-body">
+                <h2 class="proj-card-title">Portal de Inscrições</h2>
+                <p class="proj-card-desc">Plataforma para centralizar links de vestibulares e matrículas da Fametro, com sistema de tickets em tempo real.</p>
+                <div class="tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">JSON</span>
+                </div>
+                <span class="proj-btn-txt">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="proj-card" data-action="proj" data-proj="studybuddy">
+              <img class="proj-card-img" src="assets/images/sb_painel_professor.png" alt="StudyBuddy — painel do professor">
+              <div class="proj-card-body">
+                <h2 class="proj-card-title">StudyBuddy</h2>
+                <p class="proj-card-desc">Plataforma acadêmica que conecta alunos e professores para resolução de dúvidas de forma rápida.</p>
+                <div class="tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+                <span class="proj-btn-txt">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETALHE: Portal -->
+        <div id="det-portal" hidden>
+          <button class="proj-back" data-action="back"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+          <h2 style="font-family:var(--fd);font-size:2.5rem;margin-bottom:.5rem;color:var(--tx);">Portal de Inscrições</h2>
+          <div class="tags" style="margin-bottom:1.5rem;">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">JSON</span>
+          </div>
+          <p style="font-size:1.1rem;line-height:1.7;margin-bottom:2rem;">Desenvolvida para o call center da <strong>Fametro</strong>, esta plataforma centraliza links de vestibulares, matrículas e preços — eliminando a necessidade de abrir dezenas de planilhas diferentes.</p>
+          <div class="gallery">
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_principal.png" alt="Portal Principal" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">01</span>
+                <strong class="g-label">Portal Principal</strong>
+                <p class="g-desc">Tela inicial do sistema. Organiza links por <strong>unidade</strong> (Sede, Altamira, etc.) e <strong>modalidade</strong> (Presencial, Híbrido, Semipresencial, EAD). Os cards exibem o número de protocolo e abrem o link correto ao clicar.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_central_links.png" alt="Central de Links" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">02</span>
+                <strong class="g-label">Central de Links</strong>
+                <p class="g-desc">Busca avançada com <strong>517+ links</strong> cadastrados. Filtra por unidade, modalidade e tipo de ingresso, com campo de busca por palavra-chave. Cada resultado exibe badge de Vestibular ou Matrícula.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_tickets.png" alt="Sistema de Tickets" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">03</span>
+                <strong class="g-label">Sistema de Tickets</strong>
+                <p class="g-desc">Painel de chamados internos com filtros por status: <strong>Abertos</strong>, <strong>Em Andamento</strong> e <strong>Concluídos</strong>. Atendentes acompanham e atualizam tickets em tempo real, sem depender de planilhas.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_novo_ticket.png" alt="Novo Ticket" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">04</span>
+                <strong class="g-label">Abrir Novo Ticket</strong>
+                <p class="g-desc">Formulário com <strong>CPF do aluno</strong>, <strong>unidade</strong>, <strong>modalidade</strong> e tipo de problema. O ticket é criado com ID único e atribuído automaticamente ao responsável da área.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_ticket_concluido.png" alt="Ticket Concluído" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">05</span>
+                <strong class="g-label">Ticket Concluído</strong>
+                <p class="g-desc">Chamado finalizado com histórico completo: quem criou, quem resolveu, <strong>problema relatado</strong> e <strong>resolução aplicada</strong>. Pode ser reaberto se o problema persistir.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/portal_menu_temas.png" alt="Menu Lateral e Temas" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">06</span>
+                <strong class="g-label">Menu Lateral &amp; Temas</strong>
+                <p class="g-desc">Menu deslizante com acesso rápido a todas as seções. Inclui <strong>seletor de temas</strong> (Padrão, Rosa, Vermelho, Verde, Amarelo, Laranja) para personalização da interface.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETALHE: StudyBuddy -->
+        <div id="det-studybuddy" hidden>
+          <button class="proj-back" data-action="back"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+          <h2 style="font-family:var(--fd);font-size:2.5rem;margin-bottom:.5rem;color:var(--tx);">StudyBuddy</h2>
+          <div class="tags" style="margin-bottom:1.5rem;">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase</span>
+          </div>
+          <p style="font-size:1.1rem;line-height:1.7;margin-bottom:2rem;">Plataforma para facilitar a comunicação entre <strong>alunos</strong> e <strong>professores</strong> em projetos acadêmicos. O aluno registra o conteúdo estudado, o tempo dedicado e suas dificuldades — o professor acompanha tudo em tempo real e identifica quem precisa de apoio.</p>
+          <div class="gallery">
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_login.png" alt="Tela de Login" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">01</span>
+                <strong class="g-label">Tela de Login</strong>
+                <p class="g-desc">Porta de entrada do sistema. O usuário informa seu <strong>e-mail</strong> e <strong>senha</strong> para acessar o painel correspondente ao seu perfil — Estudante ou Professor. Quem ainda não tem conta pode se cadastrar diretamente nessa tela.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_cadastro_estudante.png" alt="Cadastro de Estudante" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">02</span>
+                <strong class="g-label">Cadastro — Estudante</strong>
+                <p class="g-desc">Formulário de criação de conta para alunos. Preenche <strong>nome</strong>, seleciona o perfil <strong>Estudante</strong>, informa e-mail e cria uma senha. Após o cadastro, é redirecionado ao próprio painel com histórico de registros.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_cadastro_professor.png" alt="Cadastro de Professor" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">03</span>
+                <strong class="g-label">Cadastro — Professor</strong>
+                <p class="g-desc">Mesmo formulário de cadastro, mas com o perfil <strong>Professor</strong> selecionado. Professores têm acesso a um painel diferente: visualizam todos os alunos, seus registros e dificuldades recentes.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_painel_aluno.png" alt="Painel do Aluno — vazio" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">04</span>
+                <strong class="g-label">Painel do Aluno</strong>
+                <p class="g-desc">Tela inicial do estudante após o login. Exibe o total de <strong>registros</strong> feitos e o <strong>tempo total estudado</strong>. Com a conta recém-criada, os contadores aparecem zerados. O botão <em>Novo Registro</em> inicia o diário de estudos.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_novo_registro.png" alt="Formulário Novo Registro" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">05</span>
+                <strong class="g-label">Novo Registro de Estudo</strong>
+                <p class="g-desc">Modal para registrar uma sessão de estudo. O aluno informa a <strong>data</strong>, o <strong>tempo em minutos</strong>, a <strong>disciplina</strong>, o conteúdo estudado e as <strong>dificuldades encontradas</strong>. Esses dados ficam visíveis para o professor responsável.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_historico.png" alt="Histórico com registro salvo" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">06</span>
+                <strong class="g-label">Histórico de Registros</strong>
+                <p class="g-desc">Após salvar, o registro aparece no histórico com a <strong>disciplina</strong>, data, tempo e conteúdo. Dificuldades aparecem em destaque em vermelho. Os contadores de registros e tempo total são atualizados automaticamente. Um toast de confirmação aparece no canto.</p>
+              </div>
+            </div>
+            <div class="g-item">
+              <div class="g-img-wrap"><img class="g-img" src="assets/images/sb_painel_professor.png" alt="Painel do Professor" data-action="lb"><span class="g-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+              <div class="g-caption">
+                <span class="g-num">07</span>
+                <strong class="g-label">Painel do Professor</strong>
+                <p class="g-desc">Visão geral com total de alunos, registros e alunos com <strong>baixa frequência</strong> (menos de 3 registros em 7 dias). Lista todos os alunos com seus registros expansíveis e exibe uma seção de <strong>Dificuldades Recentes</strong> para facilitar o acompanhamento pedagógico.</p>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--bd);">
+            <span style="color:var(--tx2);display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;"><i class="fa-solid fa-clock"></i> Em desenvolvimento — link em breve</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="about" hidden>
+      <div class="container">
+        <div class="page-header"><h1 class="page-title">Olá.</h1></div>
+        <div class="about-content">
+
+          <div class="about-lead">
+            <p>Sou Kauan, desenvolvedor web em formação, natural de <strong>Manaus, Brasil</strong>. Há quase quatro anos estudo e construo projetos na área, unindo teoria e prática para criar soluções funcionais. Sou técnico em Informática pelo <strong>Instituto Federal do Amazonas (IFAM)</strong> e atualmente curso o 4º período de <strong>Análise e Desenvolvimento de Sistemas</strong>.</p>
+          </div>
+
+          <section class="postsec">
+            <h2>Formação e habilidades</h2>
+            <p>Durante minha trajetória acadêmica e prática, adquiri conhecimentos em:</p>
+            <ul>
+              <li><strong>Linguagens e programação:</strong> Java, C, JavaScript, HTML, CSS</li>
+              <li><strong>Paradigmas e modelagem:</strong> Programação Orientada a Objetos (POO), diagramas UML</li>
+              <li><strong>Banco de dados:</strong> modelagem e SQL</li>
+              <li><strong>Processos e qualidade:</strong> metodologias ágeis, testes de software, verificação e validação de requisitos</li>
+            </ul>
+          </section>
+
+          <section class="postsec">
+            <h2>Minha jornada</h2>
+            <p>Como todo começo, enfrentei desafios pessoais que, por vezes, desviaram meu foco da área que tanto almejo. Mas essas dificuldades só fortaleceram minha determinação. Hoje, com mais maturidade e confiança, vejo <strong>2026 como o ano de virada</strong> — um período repleto de projetos, aprendizado contínuo e realizações.</p>
+          </section>
+
+          <section class="postsec">
+            <h2>Objetivos profissionais</h2>
+            <p>Meu principal objetivo é construir interfaces envolventes, acessíveis e performáticas, e conquistar meu primeiro emprego em tecnologia. Também busco expandir meu conhecimento para o back-end, banco de dados e modelagem de sistemas, tornando-me um profissional cada vez mais completo.</p>
+          </section>
+
+          <section class="postsec">
+            <h2>Projetos e metas para 2026</h2>
+            <p>Este ano quero unir o útil ao agradável: desenvolver projetos reais que resolvam problemas concretos e criar projetos que expandam minha lógica e criatividade. Entre as ideias em andamento:</p>
+            <ul>
+              <li>Um <strong>sistema de controle de entrada e saída de veículos</strong> para o condomínio onde moro — uma solução prática que atende a uma necessidade real.</li>
+              <li><strong>Jogos web</strong> que me ajudem a aprimorar raciocínio lógico e, quem sabe, entreter outros devs.</li>
+            </ul>
+          </section>
+
+          <section class="postsec">
+            <h2>Fora do código</h2>
+            <p>Quando não estou codando, gosto de jogar, ouvir música, praticar datilografia e continuar aprendendo — seja sobre tecnologia ou qualquer assunto que desperte curiosidade.</p>
+          </section>
+
+          <section class="postsec">
+            <h2>Online</h2>
+            <ul class="social-list">
+              <li><a href="https://br.linkedin.com/in/seu-linkedin" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="https://github.com/KauanSntz" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
+              <li><a href="mailto:kauanfere@gmail.com"><i class="fa-solid fa-envelope"></i> kauanfere@gmail.com</a></li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col"><strong>© 2026</strong><a href="#home" data-section="home">Kauan</a></div>
+      <div class="footer-col"><strong>Projetos</strong><a href="#projetos" data-section="projetos">Ver projetos</a></div>
+      <div class="footer-col"><strong>Social</strong><a href="https://github.com/KauanSntz" target="_blank">GitHub</a> / <a href="https://br.linkedin.com/in/seu-linkedin" target="_blank">LinkedIn</a></div>
+      <div class="footer-col"><strong>Contato</strong><a href="mailto:kauanfere@gmail.com">E-mail</a></div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
